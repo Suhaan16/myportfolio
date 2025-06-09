@@ -1,0 +1,279 @@
+.App {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* cursor: none; */
+  /* 
+  border: 1px solid green; */
+}
+
+.appContainer {
+  /* border: 2px solid red; */
+  max-width: 80%;
+  height: 100%;
+}
+
+.heading-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.heading {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 5vw, 2rem);
+  font-weight: 800;
+
+  padding-top: 2rem;
+}
+
+.see-more {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+
+  margin-top: 1.5rem;
+}
+
+.content2 {
+  margin-top: 15vh;
+  margin-bottom: 20vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  /* border: 2px solid yellow; */
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 1rem 2rem;
+
+  margin-top: 4rem;
+}
+
+.card-grid {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* row-gap: 10px;
+  column-gap: 10px; */
+  gap: 18px;
+}
+
+.cursor {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+
+  position: fixed;
+  border-radius: 50%;
+  z-index: 2000;
+  box-shadow: 0px 0px 150px 5px rgba(255, 253, 162, 0.8);
+  transition: background 200ms, width 400ms, height 400ms;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.trailer {
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 1999;
+  box-shadow: 0px 0px 150px 5px rgba(255, 253, 162, 0.8);
+  transition: width 400ms, height 400ms;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.link {
+  transform: scale(1);
+  text-decoration: none;
+  transition: text-decoration 500ms;
+}
+
+.link:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fffd8d;
+  transform-origin: bottom right;
+  transition: transform 300ms ease-out;
+}
+
+.link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.linkhover:hover {
+  transform: scale(1.2);
+  font-weight: bold;
+  transition: ease-in-out 300ms;
+}
+
+.welcome {
+  display: flex;
+  white-space: nowrap;
+}
+
+.grow {
+  /* background-color: rgba(255, 253, 162, 0.9); */
+  /* box-shadow: 0px 0px 150px 20px rgba(255, 253, 162, 0.8); */
+  width: 40px;
+  height: 40px;
+  align-self: center;
+  justify-self: center;
+  mix-blend-mode: difference;
+}
+
+.growmore {
+  display: none;
+}
+
+.cursor-icon {
+  opacity: 0;
+}
+
+.point {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+}
+
+.point > .cursor-icon {
+  opacity: 1;
+  animation: spin 1.5s 1 forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.content {
+  margin-top: 15vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: 2px solid red;
+} */
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  /* align-items: center; */
+  justify-content: center;
+}
+
+/* .intro-container {
+  padding: 1rem 2rem;
+} */
+.experience-container {
+  padding: 1rem 2rem;
+}
+
+.experience-container > .heading {
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.footer-holder {
+  /* justify-self: flex-end; */
+  width: 100%;
+  bottom: 0;
+}
+
+/* .footer-holder:hover {
+
+  opacity: 0;
+  visibility: hidden;
+} */
+
+/* Page Container */
+
+@media screen and (max-width: 426px) {
+  .cursor,
+  .trailer {
+    display: none;
+    visibility: none;
+  }
+
+  .appContainer {
+    max-width: 100%;
+  }
+
+  .intro-container {
+    justify-content: center;
+  }
+
+  .skills-grid {
+    gap: 0.1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: display 300ms ease-in-out;
+  }
+  .appContainer {
+    max-width: 100%;
+  }
+}
